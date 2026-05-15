@@ -44,8 +44,8 @@ def convert_to_gif(
     if speed != 1.0:
         vf_parts.append(f"setpts={1/speed:.4f}*PTS")
     vf_parts.append(
-        f"scale={width}:{height}:force_original_aspect_ratio=decrease,"
-        f"pad={width}:{height}:(ow-iw)/2:(oh-ih)/2:color=black,"
+        f"scale={width}:{height}:force_original_aspect_ratio=increase,"
+        f"crop={width}:{height},"
         f"fps={fps}"
     )
     vf = ",".join(vf_parts)
